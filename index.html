@@ -1,49 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Simple Price Calculator</title>
-</head>
-<body>
-
-  <h2>Price Calculator</h2>
-  <label>Enter Price (A):</label>
-  <input id="priceInput" type="number" step="any">
-
-  <h3>Results:</h3>
-  <p>Sales Price (D): <span id="salesPrice">-</span></p>
-  <p>Profit (E): <span id="profit">-</span></p>
-
-  <script>
-    // Get the input and output elements
-    const input = document.getElementById("priceInput");
-    const salesPrice = document.getElementById("salesPrice");
-    const profit = document.getElementById("profit");
-
-    // Listen for changes in the input
-    input.addEventListener("input", () => {
-      const A = parseFloat(input.value);
-      if (isNaN(A)) {
-        salesPrice.textContent = "-";
-        profit.textContent = "-";
-        return;
-      }
-
-      // Perform calculations
-      const B = A * 1.6;
-      const C = B * 3.5;
-      const D = (C < 5 ? 5 : C) + 1.8;
-      const E = D - B - 1.8 - (0.12 * D);
-
-      // Show the results
-      salesPrice.textContent = D.toFixed(2);
-      profit.textContent = E.toFixed(2);
-    });
-  </script>
-
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,3 +50,52 @@
   </script>
 </body>
 </html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Price Calculator</title>
+</head>
+<body>
+
+  <h2>Price Calculator</h2>
+  <label>Enter Price (A):</label>
+  <input id="priceInput" type="number" step="any">
+
+  <h3>Results:</h3>
+  <p>Sales Price (D): <span id="salesPrice">-</span></p>
+  <p>Profit (E): <span id="profit">-</span></p>
+
+  <script>
+    // Get the input and output elements
+    const input = document.getElementById("priceInput");
+    const salesPrice = document.getElementById("salesPrice");
+    const profit = document.getElementById("profit");
+
+    // Listen for changes in the input
+    input.addEventListener("input", () => {
+      const A = parseFloat(input.value);
+      if (isNaN(A)) {
+        salesPrice.textContent = "-";
+        profit.textContent = "-";
+        return;
+      }
+
+      // Perform calculations
+      const B = A * 1.6;
+      const C = B * 3.5;
+      const D = (C < 5 ? 5 : C) + 1.8;
+      const E = D - B - 1.8 - (0.12 * D);
+
+      // Show the results
+      salesPrice.textContent = D.toFixed(2);
+      profit.textContent = E.toFixed(2);
+    });
+  </script>
+
+</body>
+</html> -->
+
