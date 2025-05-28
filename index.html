@@ -2,6 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.2">
+  <title>Sales Price & Profit Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+    }
+    input {
+      font-size: 1.2em;
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sales Price & Profit Calculator</h2>
+  <label for="priceA">Enter Input Price (A):</label><br>
+  <input type="number" id="priceA" step="0.01" oninput="calculate()" />
+
+  <div class="result">
+    <p>Sales Price (D): <span id="salesPrice">-</span></p>
+    <p>Profit (E): <span id="profit">-</span></p>
+  </div>
+
+  <script>
+    function calculate() {
+      const A = parseFloat(document.getElementById("priceA").value);
+      if (isNaN(A)) {
+        document.getElementById("salesPrice").innerText = '-';
+        document.getElementById("profit").innerText = '-';
+        return;
+      }
+
+      const B = A * 1.6;
+      const C = B * 3.5;
+      const D = (C < 5 ? 5 : C) + 1.8;
+      const E = D - B - 1.8 - (0.12 * D);
+
+      document.getElementById("salesPrice").innerText = D.toFixed(2);
+      document.getElementById("profit").innerText = E.toFixed(2);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <title>Sales Price & Profit Calculator</title>
   <style>
     body {
@@ -98,4 +168,4 @@
 
 </body>
 </html> -->
-
+ -->
