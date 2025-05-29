@@ -4,40 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.2">
   <title>PRASHATARA-ADORNMENTS</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 420px;
-    margin: auto;
-    background-color: #d3d3d3; /* Light grey background */
-  }
-  h1 {
-    color: goldenrod;
-    font-weight: bold;
-    text-align: center;
-    font-size: clamp(1.45rem, 5vw, 1.6rem); /* Responsive font size */
-    white-space: nowrap; /* Prevent line breaks */
-    overflow: hidden;     /* Hide overflow */
-    text-overflow: ellipsis; /* Show ellipsis if overflow */
-  }
-  h2 {
-    text-align: center;
-    font-size: 1.4em;
-    margin-bottom: 20px;
-  }
-  input {
-    font-size: 1.2em;
-    width: 95%; /* Adjusted for mobile */
-    padding: 8px;
-    margin-top: 10px;
-  }
-  .result {
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-</style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 420px;
+      margin: auto;
+      background-color: #d3d3d3;
+    }
+    h1 {
+      color: goldenrod;
+      font-weight: bold;
+      text-align: center;
+      font-size: clamp(1.45rem, 5vw, 1.6rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+    input {
+      font-size: 1.2em;
+      width: 95%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
   <h1>PRASHATARA-ADORNMENTS</h1>
@@ -70,7 +70,7 @@
       const C = B * 6;
       const baseC = (C < 6 ? 6 : C);
       const D = baseC + 1.8 - (F * C);
-      const E = D - B - 1.8 - (6.5% * D + 4% * D + 0.3 + 0.18);
+      const E = D - B - 1.8 - ((0.065 * D) + (0.04 * D) + 0.3 + 0.18);
 
       document.getElementById("salesPrice").innerText = D.toFixed(2);
       document.getElementById("profit").innerText = E.toFixed(2);
