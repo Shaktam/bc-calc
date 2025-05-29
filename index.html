@@ -70,7 +70,7 @@
       const C = B * 6;
       const baseC = (C < 6 ? 6 : C);
       const D = baseC + 1.8 - (F * C);
-      const E = D - B - 1.8 - (0.12 * D);
+      const E = D - B - 1.8 - (6.5% * D + 4% * D + 0.3 + 0.18);
 
       document.getElementById("salesPrice").innerText = D.toFixed(2);
       document.getElementById("profit").innerText = E.toFixed(2);
