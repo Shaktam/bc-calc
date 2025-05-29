@@ -37,6 +37,109 @@
       font-weight: bold;
       font-size: 1.2em;
     }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .row p {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>PRASHATARA-ADORNMENTS</h1>
+  <h2>Sales Price & Profit Calculator</h2>
+
+  <label for="priceA">Enter Input Price:</label>
+  <input type="number" id="priceA" step="0.01" oninput="calculate()" />
+
+  <label for="discountF">Enter Discount (%):</label>
+  <input type="number" id="discountF" step="0.01" value="0" oninput="calculate()" />
+
+  <div class="result">
+    <div class="row">
+      <p>Sales Price: <span id="salesPrice">-</span></p>
+      <p>P.Cost: <span id="pcost">-</span></p>
+    </div>
+    <p>Profit: <span id="profit">-</span></p>
+  </div>
+
+  <script>
+    function calculate() {
+      const A = parseFloat(document.getElementById("priceA").value);
+      const F_percent = parseFloat(document.getElementById("discountF").value);
+
+      if (isNaN(A) || A <= 0 || isNaN(F_percent) || F_percent < 0) {
+        document.getElementById("salesPrice").innerText = '-';
+        document.getElementById("pcost").innerText = '-';
+        document.getElementById("profit").innerText = '-';
+        return;
+      }
+
+      const F = F_percent / 100;
+      const B = A * 1.6;
+      const C = B * 6;
+      const baseC = (C < 6 ? 6 : C);
+      const D = baseC + 1.8 - (F * C);
+
+      // G = 1.8 + (0.065*D + 0.04*D + 0.3 + 0.18)
+      const G = 1.8 + ((0.065 * D) + (0.04 * D) + 0.3 + 0.18);
+
+      // Profit E = D - B - 1.8 - (0.065*D + 0.04*D + 0.3 + 0.18)
+      const E = D - B - G;
+
+      document.getElementById("salesPrice").innerText = D.toFixed(2);
+      document.getElementById("pcost").innerText = G.toFixed(2);
+      document.getElementById("profit").innerText = E.toFixed(2);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.2">
+  <title>PRASHATARA-ADORNMENTS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 420px;
+      margin: auto;
+      background-color: #d3d3d3;
+    }
+    h1 {
+      color: goldenrod;
+      font-weight: bold;
+      text-align: center;
+      font-size: clamp(1.45rem, 5vw, 1.6rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+    input {
+      font-size: 1.2em;
+      width: 95%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
@@ -77,4 +180,4 @@
     }
   </script>
 </body>
-</html>
+</html> -->
