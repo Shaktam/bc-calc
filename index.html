@@ -59,7 +59,194 @@
 </head>
 <body>
   <h1>PRASHATARA-ADORNMENTS</h1>
-  <h2>Listing Price Calculator</h2>
+  <h2>Landing Price Calculator</h2>
+
+  <label for="totalCost">Total Procurement Cost (€):</label>
+  <input type="number" id="totalCost" step="0.01" />
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" step="1" />
+
+  <button onclick="calculateLandingPrice()">Calculate Landing Price</button>
+
+  <div class="result">
+    <p>Landing Price / Unit: <span id="landingPrice">-</span></p>
+  </div>
+
+  <button onclick="takeOver()">Take Over</button>
+
+  <h2>Sales Price & Profit Calculator</h2>
+
+  <label for="priceA">Enter Input Price (€):</label>
+  <input type="number" id="priceA" step="0.01" oninput="calculate(false)" />
+
+  <label for="discountF">Enter Discount (%):</label>
+  <input type="number" id="discountF" step="0.01" value="0" oninput="calculate(false)" />
+
+  <div class="result">
+    <div class="row">
+      <p>Sales Price: <span id="salesPrice">-</span></p>
+      <p>P.Cost: <span id="pcost">-</span></p>
+    </div>
+    <div class="row">
+      <p>Dis.Price: <span id="discountPrice">-</span></p>
+      <p>Profit: <span id="profit">-</span></p>
+    </div>
+  </div>
+
+  <script>
+    function formatEuro(value) {
+      return value.toFixed(2) + ' €';
+    }
+
+    let landingPrice = null;
+    let fromTakeOver = false;
+
+    function calculateLandingPrice() {
+      const totalCost = parseFloat(document.getElementById("totalCost").value);
+      const quantity = parseFloat(document.getElementById("quantity").value);
+
+      if (isNaN(totalCost) || totalCost <= 0 || isNaN(quantity) || quantity <= 0) {
+        document.getElementById("landingPrice").innerText = '-';
+        landingPrice = null;
+        return;
+      }
+
+      landingPrice = totalCost / quantity;
+      document.getElementById("landingPrice").innerText = formatEuro(landingPrice);
+    }
+
+    function takeOver() {
+      if (landingPrice !== null) {
+        document.getElementById("priceA").value = landingPrice.toFixed(2);
+        fromTakeOver = true;
+        calculate(true);
+      } else {
+        alert("Please calculate the Landing Price first.");
+      }
+    }
+
+    function calculate(useDirectB) {
+      const A = parseFloat(document.getElementById("priceA").value);
+      const F_percent = parseFloat(document.getElementById("discountF").value);
+
+      if (isNaN(A) || A <= 0 || isNaN(F_percent) || F_percent < 0) {
+        document.getElementById("salesPrice").innerText = '-';
+        document.getElementById("pcost").innerText = '-';
+        document.getElementById("profit").innerText = '-';
+        document.getElementById("discountPrice").innerText = '-';
+        return;
+      }
+
+      const F = F_percent / 100;
+      const B = useDirectB || fromTakeOver ? A : A * 1.9;
+      const C = B * 6;
+      const baseC = (C < 6 ? 6 : C);
+      const D = baseC + 1.8 - (F * C);
+      const G = 1.8 + ((0.065 * D) + (0.04 * D) + 0.3 + 0.18);
+      const E = D - B - G;
+      const discountPrice = baseC * 0.70;
+
+      document.getElementById("salesPrice").innerText = formatEuro(D);
+      document.getElementById("pcost").innerText = formatEuro(G);
+      document.getElementById("profit").innerText = formatEuro(E);
+      document.getElementById("discountPrice").innerText = formatEuro(discountPrice);
+
+      // Reset flag after calculation
+      fromTakeOver = false;
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.2" />
+  <title>PRASHATARA-ADORNMENTS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 420px;
+      margin: auto;
+      background-color: #d3d3d3;
+    }
+    h1 {
+      color: goldenrod;
+      font-weight: bold;
+      text-align: center;
+      font-size: clamp(1.45rem, 5vw, 1.6rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+    input {
+      font-size: 1.2em;
+      width: 95%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .row p {
+      flex: 1;
+    }
+    button {
+      margin-top: 15px;
+      font-size: 1.1em;
+      padding: 8px;
+      width: 100%;
+      background-color: goldenrod;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>PRASHATARA-ADORNMENTS</h1>
+  <h2>Landing Price Calculator</h2>
 
   <label for="totalCost">Total Procurement Cost (€):</label>
   <input type="number" id="totalCost" step="0.01" />
@@ -152,4 +339,4 @@
     }
   </script>
 </body>
-</html>
+</html> -->
