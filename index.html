@@ -139,7 +139,7 @@
       }
 
       const F = F_percent / 100;
-      const B = useDirectB || fromTakeOver ? A : A * 1.9;
+      const B = (useDirectB || fromTakeOver) ? A : A * 1.9;
       const C = B * 6;
       const baseC = (C < 6 ? 6 : C);
       const D = baseC + 1.8 - (F * C);
