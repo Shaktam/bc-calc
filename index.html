@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.2" />
   <title>PRASHATARA-ADORNMENTS</title>
-  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <h1>PRASHATARA-ADORNMENTS</h1>
@@ -40,18 +39,28 @@
 
   <label for="discountF">Enter Discount (%):</label>
   <input type="number" id="discountF" step="0.01" value="0" />
-
   <div class="result">
-    <div class="row">
-      <p>Sales Price: <span id="salesPrice">-</span></p>
-      <p>P.Cost: <span id="pcost">-</span></p>
+    <div class="row" style="gap: 40px; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px; min-width: 250px;">
+        <label for="salesPriceInput" style="font-weight: bold; white-space: nowrap;">Sales Price:</label>
+        <input type="number" id="salesPriceInput" step="0.01" placeholder="Enter sales price" style="width: 120px; padding: 4px; font-size: 16px; height: 28px;" />
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <label style="font-weight: bold; white-space: nowrap;">P.Cost:</label>
+        <span id="pcost">-</span>
+      </div>
     </div>
-    <div class="row">
-      <p>Dis.Price: <span id="discountPrice">-</span></p>
-      <p>Profit: <span id="profit">-</span></p>
+
+    <div class="row" style="gap: 40px; align-items: center; margin-top: 10px;">
+      <div style="display: flex; align-items: center; gap: 8px; min-width: 250px;">
+        <label style="font-weight: bold; white-space: nowrap;">Dis.Price:</label>
+        <span id="discountPrice">-</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <label style="font-weight: bold; white-space: nowrap;">Profit:</label>
+        <span id="profit">-</span>
+      </div>
     </div>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>

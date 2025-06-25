@@ -1,87 +1,91 @@
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  max-width: 420px;
-  margin: auto;
-  background-color: #d3d3d3;
-}
-h1 {
-  color: goldenrod;
-  font-weight: bold;
-  text-align: center;
-  font-size: clamp(1.45rem, 5vw, 1.6rem);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-h2 {
-  text-align: center;
-  font-size: 1.4em;
-  margin-bottom: 20px;
-}
-input, select {
-  font-size: 1.2em;
-  width: 95%;
-  padding: 8px;
-  margin-top: 10px;
-}
-.result {
-  margin-top: 20px;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-.row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-.row p {
-  flex: 1;
-}
-button {
-  margin-top: 15px;
-  font-size: 1.1em;
-  padding: 8px;
-  width: 100%;
-  background-color: goldenrod;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-.toggle-switch {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  gap: 8px;
-  font-size: 1.1em;
-  cursor: pointer;
-  user-select: none;
-}
-.toggle-switch input[type="checkbox"] {
-  width: 40px;
-  height: 20px;
-  position: relative;
-  appearance: none;
-  background: #ccc;
-  outline: none;
-  border-radius: 20px;
-  transition: background 0.3s;
-  cursor: pointer;
-}
-.toggle-switch input[type="checkbox"]:checked {
-  background: goldenrod;
-}
-.toggle-switch input[type="checkbox"]::before {
-  content: '';
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  top: 1px;
-  left: 1px;
-  background: white;
-  transition: 0.3s;
-}
-.toggle-switch input[type="checkbox"]:checked::before {
-  left: 21px;
-}
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 420px;
+      margin: auto;
+      background-color: #d3d3d3;
+    }
+    h1 {
+      color: goldenrod;
+      font-weight: bold;
+      text-align: center;
+      font-size: clamp(1.45rem, 5vw, 1.6rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+    }
+    input, select {
+      font-size: 1.2em;
+      width: 95%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .row p, .row input {
+      flex: 1;
+    }
+    .row input {
+      font-size: 1.1em;
+      padding: 5px;
+    }
+    button {
+      margin-top: 15px;
+      font-size: 1.1em;
+      padding: 8px;
+      width: 100%;
+      background-color: goldenrod;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      gap: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle-switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      position: relative;
+      appearance: none;
+      background: #ccc;
+      outline: none;
+      border-radius: 20px;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .toggle-switch input[type="checkbox"]:checked {
+      background: goldenrod;
+    }
+    .toggle-switch input[type="checkbox"]::before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      background: white;
+      transition: 0.3s;
+    }
+    .toggle-switch input[type="checkbox"]:checked::before {
+      left: 21px;
+    }
