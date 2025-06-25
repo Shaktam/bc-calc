@@ -1,5 +1,5 @@
 function formatEuro(value) {
-  return value.toFixed(2) + ' €';
+  return value.toFixed(3) + ' €';
 }
 
 let landingPrice = null;
